@@ -1,25 +1,30 @@
 <!-- Hero section component -->
 <script lang="ts">
   import Button from '$lib/components/Button.svelte';
-  import { Book, Star } from 'lucide-svelte';
+  import { Book, Star, Flame } from 'lucide-svelte';
 </script>
 
 <section class="bg-gray-900 py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col lg:flex-row items-center">
       <div class="lg:w-1/2 lg:pr-10">
+        <div class="inline-flex items-center px-3 py-1.5 bg-purple-900/50 border border-purple-700 rounded-md mb-4">
+          <Flame class="h-4 w-4 text-orange-500" />
+          <span class="ml-2 text-xs font-medium text-purple-300">Featured Story</span>
+        </div>
         <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6">
           Discover Original Stories from Talented Writers
         </h1>
         <p class="text-gray-300 text-lg mb-8">
           Embark on a journey through thousands of original stories across every genre. Find your next favorite read or share your own creations.
         </p>
-        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-          <Button variant="primary" className="px-6 py-3 text-base font-medium">
+        <div class="flex flex-row space-x-4">
+          <Button variant="primary" className="px-6 py-3 text-base font-medium flex items-center">
             Start Reading
+            <Book class="h-4 w-4 ml-2" />
           </Button>
           <Button variant="secondary" className="px-6 py-3 text-base font-medium">
-            Publish Your Story
+            Explore More &gt;
           </Button>
         </div>
       </div>

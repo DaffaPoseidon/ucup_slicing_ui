@@ -9,7 +9,7 @@
       <div>
         <div class="flex items-center mb-4">
           <BookOpen class="h-8 w-8 text-purple-500" />
-          <span class="ml-2 text-xl font-bold text-white">NovelHit</span>
+          <span class="ml-2 text-xl font-bold text-white">Novella</span>
         </div>
         <p class="text-gray-400 text-sm">
           Discover, read, and share original stories from talented writers around the world.
@@ -45,7 +45,7 @@
     </div>
     <div class="mt-12 pt-8 border-t border-gray-800 text-center">
       <p class="text-gray-400 text-sm">
-        © 2024 NovelHit. All rights reserved.
+        © 2024 Novella. All rights reserved.
       </p>
     </div>
   </div>
