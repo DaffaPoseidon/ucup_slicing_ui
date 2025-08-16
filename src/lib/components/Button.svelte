@@ -4,11 +4,11 @@
   export let href: string | undefined = undefined;
   export let className = '';
   
-  const baseStyles = "rounded-lg transition-colors";
+  const baseStyles = "rounded-lg transition-colors px-[1em] py-[0.5em]";
   
   $: buttonClasses = variant === 'primary' 
     ? `${baseStyles} bg-purple-600 hover:bg-purple-700 text-white ${className}`
-    : `${baseStyles} border border-white text-white hover:bg-white hover:text-purple-600 ${className}`;
+    : `${baseStyles} ${className || 'border border-white text-white hover:bg-white hover:text-purple-600'}`;
 </script>
 
 {#if href}
