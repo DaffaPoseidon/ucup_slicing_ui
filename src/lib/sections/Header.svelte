@@ -28,7 +28,7 @@
       <BookOpen class="h-8 w-8 text-[#9260FE]"/>
       <span class="text-white font-bold text-xl">NH</span>
     </div>
-    <nav class="flex-1 min-w-0 max-[600px]:hidden">
+    <nav class="flex-1 min-w-0 max-[960px]:hidden">
       <div class="flex gap-[1em] flex-wrap">
         <a href="/#" class="text-white hover:text-purple-400 whitespace-nowrap">Browse</a>
         <a href="/#" class="text-gray-300 hover:text-purple-400 whitespace-nowrap">Rankings</a>
@@ -42,12 +42,12 @@
   <!-- Div 2: Search, Write, Notification, Profile, Hamburger -->
   <div class="flex items-center gap-[1em]">
     <!-- Search (desktop) -->
-    <div class="hidden min-[600px]:flex items-center bg-gray-800 rounded-lg gap-2 px-2">
-      <Search class="h-5 w-5 text-gray-400" />
+    <div class="hidden min-[600px]:flex items-center rounded-lg gap-2 px-2 w-[25vw]">
+      <Search class="h-5 w-5 text-gray-400 mr-[1em]"/>
         <input 
           type="text" 
-          placeholder="Search stories..." 
-          class="bg-gray-800 text-white py-2 px-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 border border-gray-700 w-[12vw] min-w-[100px] max-w-[220px]"
+          placeholder="Search novels, authors..." 
+          class="text-white focus:outline-none w-full"
         />
     </div>
     <!-- Search (mobile) -->
@@ -79,9 +79,20 @@
         </button>
       {/if}
     </div>
+    <!-- Pen/Pencil Icon (desktop only) -->
+    <div class="hidden min-[600px]:block">
+      <a href="/write" class="flex items-center justify-center w-8 h-8 text-gray-300 hover:text-[#9260FE] transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+          <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+          <path d="M2 2l7.586 7.586"></path>
+          <path d="M11 11l5 5"></path>
+        </svg>
+      </a>
+    </div>
     <!-- Write Button (desktop only) -->
     <div class="hidden min-[600px]:block">
-      <Button variant="primary">Write</Button>
+      <a href="/write" class="font-bold text-white hover:text-[#9260FE] transition-colors">Write</a>
     </div>
     <!-- Notification Bell -->
     <div class="flex items-center">
@@ -104,7 +115,7 @@
     <!-- Hamburger Menu (mobile only) -->
     <button 
       on:click={toggleMobileMenu}
-      class="p-2 text-gray-300 hover:text-white transition-colors min-[600px]:hidden"
+      class="p-2 text-gray-300 hover:text-white transition-colors min-[960px]:hidden"
       aria-label="Toggle mobile menu"
     >
       <Menu class="h-6 w-6" />

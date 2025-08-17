@@ -161,10 +161,10 @@
   </div>
 
   <!-- Special Announcement Card with larger margin -->
-  <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 mt-24">
-    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 max-w-3xl mx-auto">
+
+    <div class="flex flex-col items-center justify-center gap-[1em] bg-gray-800 p-6 rounded-xl border border-gray-700 mr-[2.5vw] ml-[2.5vw] mt-[10vh] min-[960px]:flex-row min-[960px]:items-center min-[960px]:justify-between">
       <!-- Row 1: Bell icon, Title, and "New" badge -->
-      <div class="flex items-center justify-center mb-4">
+      <div class="flex items-center justify-center mb-4 min-[960px]:mb-0">
         <svg class="h-6 w-6 text-[#9260FE] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
         </svg>
@@ -173,16 +173,16 @@
       </div>
       
       <!-- Row 2: Description text with justify -->
-      <p class="text-gray-300 mb-4 text-justify">
-        Summer Writing Contest announced! Join our annual writing competition and showcase your talent. The theme this year is "Unexpected Journeys" and submissions are open until September 15th. Winners will receive prizes and featured placement on our platform.
+      <p class="text-gray-300 mb-4 min-[960px]:mb-0 text-justify min-[960px]:max-w-md">
+        Summer Writing Contest announced! Join for a chance to win $5,000 in prize!
       </p>
       
       <!-- Row 3: View All link -->
-      <div class="text-center">
-        <a href="#" class="text-[#9260FE] hover:text-purple-300 font-medium">View All &gt;</a>
+      <div class="text-center min-[960px]:text-right">
+        <a href="/" class="text-[#9260FE] hover:text-purple-300 font-medium">View All &gt;</a>
       </div>
     </div>
-  </div>
+
 </section>
 
 <!-- Trending & Rankings Section -->
@@ -195,52 +195,61 @@
           <h2 class="text-2xl font-bold text-white">Trending Now</h2>
           <a href="#" class="text-[#9260FE] hover:text-purple-300">View All →</a>
         </div>
-        <div class="grid grid-cols-2 gap-6">
-          {#each trendingBooks as book}
-            <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-primary-500 transition-colors">
-              <div class="relative">
-                <div class="bg-gray-700 h-48 flex items-center justify-center">
-                  <svg class="h-12 w-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <span class={`absolute top-3 left-3 px-2 py-1 text-xs rounded-full ${
-                  book.status === 'Hot' ? 'bg-red-500 text-white' : 'bg-green-500 text-white'
-                }`}>
-                  {book.status}
-                </span>
-              </div>
-              <div class="p-4">
-                <h3 class="text-white font-semibold mb-1">{book.title}</h3>
-                <p class="text-gray-400 text-sm mb-1">by {book.author}</p>
-                <p class="text-gray-500 text-xs mb-2">
-                  {#if Array.isArray(book.genre)}
-                    {book.genre.join(', ')}
-                  {:else}
-                    {book.genre}
-                  {/if}
-                </p>
-                <p class="text-gray-400 text-xs mb-3 line-clamp-2">{book.description}</p>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center space-x-2">
-                    <div class="flex">
-                      {#each Array(5) as _, i}
-                        <svg class="h-4 w-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      {/each}
-                    </div>
-                    <span class="text-gray-400 text-xs">{book.rating}</span>
-                  </div>
-                  <span class="text-primary-400 text-sm">Read →</span>
-                </div>
-                <div class="mt-2 text-gray-500 text-xs">
-                  {book.chapters} chapters
-                </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {#each editorsPicks as book}
+        <div class="bg-[#121827] rounded-xl overflow-hidden border border-gray-700 hover:border-primary-500 transition-colors">
+          <div class="bg-gray-700 h-72 flex items-center justify-center relative">
+            <span class="absolute top-[1em] right-[1em] bg-[#EF4344] text-white text-xs px-2 py-1 rounded-[1em] font-bold flex items-center gap-1">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+              </svg>
+              Hot
+            </span>
+            <img src="" alt="">
+          </div>
+          <div class="flex flex-col flex-wrap justify-start p-[1em]">
+            <h3 class="text-white font-semibold mb-1">{book.title}</h3>
+            <p class="text-gray-400 text-sm mb-3">by {book.author}</p>
+            
+            <!-- Rating -->
+            <div class="flex gap-4 items-center mb-3">
+              <div class="flex items-center">
+                <svg class="h-4 w-4 text-yellow-400 fill-current mr-1" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span class="text-gray-400 text-xs">{book.rating}</span>
               </div>
             </div>
-          {/each}
+            
+            <!-- Genre and Status -->
+            <div class="flex flex-wrap gap-[1em]">
+              <!-- Genre -->
+              <div class="flex flex-wrap gap-[1em]">
+                {#each book.genre as g}
+                  <span class="bg-[#1F2A3B] text-gray-300 text-xs px-3 py-1 rounded-full border border-gray-700/10">
+                    {g}
+                  </span>
+                {/each}
+              </div>
+              
+              <!-- Status - Alternating between Ongoing and Completed -->
+              <div>
+                {#if book.title.length % 2 === 0}
+                  <span class="bg-transparent text-[#23C55E] text-xs px-3 py-1 rounded-full border border-[#23C55E]">
+                    Completed
+                  </span>
+                {:else}
+                  <span class="bg-transparent text-[#3676E0] text-xs px-3 py-1 rounded-full border border-[#3676E0]">
+                    Ongoing
+                  </span>
+                {/if}
+              </div>
+            </div>
+          </div>
         </div>
+      {/each}
+    </div>
       </div>
 
       <!-- Weekly Rankings -->
@@ -317,15 +326,13 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       {#each newReleases as book}
         <div class="bg-[#121827] rounded-xl overflow-hidden border border-gray-700 hover:border-primary-500 transition-colors">
-          <div class="bg-gray-700 h-72 flex items-center justify-center relative">
+          <div class="bg-gray-700 h-72 flex relative">
             <span class="absolute top-[1em] left-[1em] bg-[#23C55E] text-white text-xs px-2 py-1 rounded-[1em] font-bold">
               New
             </span>
-            <svg class="h-12 w-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
+            <img src="" alt="">
           </div>
-          <div class="flex flex-wrap p-4">
+          <div class="flex flex-col flex-wrap justify-start p-[1em]">
             <h3 class="text-white font-semibold mb-1">{book.title}</h3>
             <p class="text-gray-400 text-sm mb-3">by {book.author}</p>
             
@@ -411,11 +418,9 @@
               </svg>
               Hot
             </span>
-            <svg class="h-12 w-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
+            <img src="" alt="">
           </div>
-          <div class="flex flex-col p-[1em]">
+          <div class="flex flex-col flex-wrap justify-start p-[1em]">
             <h3 class="text-white font-semibold mb-1">{book.title}</h3>
             <p class="text-gray-400 text-sm mb-3">by {book.author}</p>
             
@@ -503,7 +508,7 @@
     <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
       {#each latestChapters as chapter}
         <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-purple-500 transition-colors">
-          <div class="bg-gray-700 h-[85vh] relative">
+          <div class="bg-gray-700 h-[40vh] relative">
             <!-- Background image - using a placeholder since we don't have actual images -->
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
             <div class="w-full h-full bg-center bg-cover" style="background-image: url('https://source.unsplash.com/random/300x400?book'); background-position: center;"></div>
@@ -516,7 +521,7 @@
               <p class="text-gray-300 text-xs mt-1">{chapter.timeAgo}</p>
             </div>
           </div>
-          <div class="p-3">
+          <div class="flex flex-col flex-wrap justify-start p-[1em]">
             <h4 class="text-white font-medium text-sm mb-1">{chapter.title}</h4>
             <p class="text-gray-400 text-xs mb-2">by {chapter.author}</p>
             <a href="#" class="text-[#9260FE] hover:text-purple-300 text-xs font-medium">Read Now &gt;</a>

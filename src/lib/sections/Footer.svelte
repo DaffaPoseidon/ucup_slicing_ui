@@ -69,7 +69,7 @@
         </ul>
       </div>
     </div>
-    <div class="flex flex-wrap gap-[1em] justify-center mt-12 pt-8 border-t border-gray-800 text-center">
+    <div class="flex flex-wrap gap-[1em] justify-center mt-12 pt-8 border-t border-gray-800 text-center min-[960px]:justify-between">
       <p class="text-gray-400 text-sm">
         © 2024 Novella. All rights reserved.
       </p>
